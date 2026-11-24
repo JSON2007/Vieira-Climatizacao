@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    font-family: "Roboto", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #0B192C;
+    background-color: #ffffff;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    accent-color: #1692D6;
+  }
+
+  /* Browser surface theming alinhado à paleta IceTec */
+  ::selection {
+    background-color: rgba(22, 146, 214, 0.28);
+    color: #07111E;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #07111E;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #1E3550;
+    border-radius: 5px;
+    border: 2px solid #07111E;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1692D6;
+  }
+
+  :focus-visible {
+    outline: 2px solid #1692D6;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Containers e Grids */
+.container-site {
+  width: min(100% - 32px, 1140px);
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .container-site {
+    width: min(100% - 64px, 1140px);
+  }
+}
+
+/* Tipografia Impeccable */
+.section-title {
+  font-family: "Roboto Condensed", "Arial Narrow", sans-serif;
+  font-size: clamp(1.85rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: #0B192C;
+}
+
+.section-title-dark {
+  color: #ffffff;
+}
+
+.section-copy {
+  margin-top: 14px;
+  color: #4A5568;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  max-width: 65ch;
+}
+
+.section-copy-dark {
+  margin-top: 14px;
+  color: #94A3B8;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  max-width: 65ch;
+}
+
+/* Keyframe animations */
+@keyframes ambientPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.7;
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes whatsappPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7), 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgba(37, 211, 102, 0), 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.animate-pulse-ambient {
+  animation: ambientPulse 4s ease-in-out infinite;
+}
+
+.animate-float-badge {
+  animation: floatGentle 4.5s ease-in-out infinite;
+}
+
+.animate-whatsapp-pulse {
+  animation: whatsappPulse 2.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+/* Redução de movimento acessível (a11y) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
